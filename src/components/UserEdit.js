@@ -1,5 +1,5 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
-
 const UserEdit = ({ user, handleUpdateUser, index }) => {
   
   const [updatedUser, setUpdatedUser] = useState(user);
@@ -30,7 +30,7 @@ const UserEdit = ({ user, handleUpdateUser, index }) => {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <h1>Edit User</h1>
       {user &&
       <form onSubmit={handleSubmit}>
@@ -39,7 +39,7 @@ const UserEdit = ({ user, handleUpdateUser, index }) => {
         <input type="text" name="phone" value={user.phone} onChange={handleInputChange} />
         <button type="submit">Save</button>
       </form>}
-    </div>
+    </React.Fragment>
   );
 }
 
