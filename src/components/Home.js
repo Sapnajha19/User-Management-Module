@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, Link, Routes, Route, useParams } from 'react-router-dom'
+import { useNavigate, Link, Routes, Route } from 'react-router-dom'
 import UserEdit from './UserEdit'
 export default function Home() {
     const navigate = useNavigate()
@@ -13,9 +13,7 @@ export default function Home() {
     }, [])
     // console.log(data)
 
-    const handleAddUser = (newUser) => {
-        setData([...data, newUser])
-    }
+    
 
     const handleUpdateUser = (updatedUser) => {
         const newData = [...data];

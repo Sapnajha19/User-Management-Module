@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import UserEdit from './components/UserEdit';
 import UserAdd from './components/UserAdd';
