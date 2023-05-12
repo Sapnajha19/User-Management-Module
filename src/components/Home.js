@@ -55,29 +55,29 @@ export default function Home() {
             <div style={{ background: "#000000", height: "50px", width: "100%", color: "#ffffff", textAlign: "center", fontSize: "24px" }}>User Management Module</div>
             <div style={{display:"flex", justifyContent:"center"}}>
                 <Link to="/add"><button style={{ position: "absolute", right: "100px" }} >Add</button></Link>
-                <table style={{border:"1px solid black"}}>
-                    <thead>
+                <table style={{border:"1px solid black", padding:"20px"}}>
+                    <thead style={{background:"blue", color:"white"}}>
                         <tr>
-                            <th>Table-No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Added-on</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th style={{border:"1px solid black"}}>Table-No</th>
+                            <th style={{border:"1px solid black"}}>Name</th>
+                            <th style={{border:"1px solid black"}}>Email</th>
+                            <th style={{border:"1px solid black"}}>Phone</th>
+                            <th style={{border:"1px solid black"}}>Added-on</th>
+                            <th style={{border:"1px solid black"}}>Status</th>
+                            <th style={{border:"1px solid black"}}>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.length > 0 ?
                             (data.map((user, index) => (
                                 <tr key={index}>
-                                    <td>{index + 1}</td>
-                                    <td>{editIndex === index ? <input type="text" value={user.name} /> : user.name}</td>
-                                    <td>{editIndex === index ? <input type="text" value={user.email} /> : user.email}</td>
-                                    <td>{editIndex === index ? <input type="text" value={user.phone} /> : user.phone}</td>
-                                    <td>{user.createdAt}</td>
-                                    <td>{user.status ? "Active" : "NOn-Active"}</td>
-                                    <td><select onChange={(e) => handleDropdownChange(e, index)}>
+                                    <td style={{border:"1px solid black"}}>{index + 1}</td>
+                                    <td style={{border:"1px solid black"}}>{editIndex === index ? <input type="text" value={user.name} /> : user.name}</td>
+                                    <td style={{border:"1px solid black"}}>{editIndex === index ? <input type="text" value={user.email} /> : user.email}</td>
+                                    <td style={{border:"1px solid black"}}>{editIndex === index ? <input type="text" value={user.phone} /> : user.phone}</td>
+                                    <td style={{border:"1px solid black"}}>{user.createdAt}</td>
+                                    <td style={{border:"1px solid black"}}>{user.status ? "Active" : "NOn-Active"}</td>
+                                    <td style={{border:"1px solid black"}}><select onChange={(e) => handleDropdownChange(e, index)}>
                                         <option >Select an action</option>
                                         <option onClick={() => HandleEditClick(index)}>Edit</option>
                                         <option>Delete</option>
