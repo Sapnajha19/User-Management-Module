@@ -7,6 +7,7 @@ const UserAdd = () => {
     name: "",
     email: "",
     phone: "",
+    password: "",
   });
 
   const handleInputChange = (event) => {
@@ -18,7 +19,7 @@ const UserAdd = () => {
     event.preventDefault();
     // Add the user object to your data array
     // const id=data[data.length-1]+1;
-    const data = { name: user.name, email: user.email, phone: Number(user.phone) };
+    const data = { name: user.name, email: user.email, phone: Number(user.phone), password:"your password"};
     // fetch('https://openuserapi.onrender.com/admin/create-user', {
     //   method: 'POST',
     //   headers: {
@@ -43,11 +44,10 @@ const UserAdd = () => {
       // location.reload()
       // console.log(res)
       // console.log(res.status)
-      console.log(res.json())
+      
       // console.log(res.status)
 
-      if (res.status === 200) {
-        console.log(res)
+      if (res.status === 200 || res.status===201) {
         console.log('API request was successful');
         navigate('/');
       } else {
