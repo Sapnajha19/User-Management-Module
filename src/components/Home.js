@@ -53,9 +53,9 @@ export default function Home() {
     return (
         <div>
             <div style={{ background: "#000000", height: "50px", width: "100%", color: "#ffffff", textAlign: "center", fontSize: "24px" }}>User Management Module</div>
-            <div>
-                <Link to="/add"><button style={{ position: "absolute", right: "300px" }} >Add</button></Link>
-                <table>
+            <div style={{display:"flex", justifyContent:"center"}}>
+                <Link to="/add"><button style={{ position: "absolute", right: "100px" }} >Add</button></Link>
+                <table style={{border:"1px solid black"}}>
                     <thead>
                         <tr>
                             <th>Table-No</th>
@@ -92,9 +92,7 @@ export default function Home() {
                     </tbody>
                 </table>
             </div>
-            {/* <UserTable data={data}/> */}
-            {/* <UserAdd updateUserList={handleAddUser} /> */}
-
+            
             <Routes>
                 <Route path="/edit/:index" render={({ match }) => (
                     <UserEdit
