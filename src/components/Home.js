@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link, Routes, Route, useParams } from 'react-router-dom'
-import UserTable from './UserTable'
 import UserEdit from './UserEdit'
 export default function Home() {
     const navigate = useNavigate()
@@ -51,33 +50,33 @@ export default function Home() {
     }
 
     return (
-        <div>
+        <React.Fragment>
             <div style={{ background: "#000000", height: "50px", width: "100%", color: "#ffffff", textAlign: "center", fontSize: "24px" }}>User Management Module</div>
-            <div style={{display:"flex", justifyContent:"center"}}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
                 <Link to="/add"><button style={{ position: "absolute", right: "100px" }} >Add</button></Link>
-                <table style={{border:"1px solid black", padding:"20px"}}>
-                    <thead style={{background:"blue", color:"white"}}>
+                <table style={{ border: "1px solid black", padding: "20px" }}>
+                    <thead style={{ background: "blue", color: "white" }}>
                         <tr>
-                            <th style={{border:"1px solid black"}}>Table-No</th>
-                            <th style={{border:"1px solid black"}}>Name</th>
-                            <th style={{border:"1px solid black"}}>Email</th>
-                            <th style={{border:"1px solid black"}}>Phone</th>
-                            <th style={{border:"1px solid black"}}>Added-on</th>
-                            <th style={{border:"1px solid black"}}>Status</th>
-                            <th style={{border:"1px solid black"}}>Action</th>
+                            <th style={{ border: "1px solid black" }}>Table-No</th>
+                            <th style={{ border: "1px solid black" }}>Name</th>
+                            <th style={{ border: "1px solid black" }}>Email</th>
+                            <th style={{ border: "1px solid black" }}>Phone</th>
+                            <th style={{ border: "1px solid black" }}>Added-on</th>
+                            <th style={{ border: "1px solid black" }}>Status</th>
+                            <th style={{ border: "1px solid black" }}>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.length > 0 ?
                             (data.map((user, index) => (
                                 <tr key={index}>
-                                    <td style={{border:"1px solid black"}}>{index + 1}</td>
-                                    <td style={{border:"1px solid black"}}>{editIndex === index ? <input type="text" value={user.name} /> : user.name}</td>
-                                    <td style={{border:"1px solid black"}}>{editIndex === index ? <input type="text" value={user.email} /> : user.email}</td>
-                                    <td style={{border:"1px solid black"}}>{editIndex === index ? <input type="text" value={user.phone} /> : user.phone}</td>
-                                    <td style={{border:"1px solid black"}}>{user.createdAt}</td>
-                                    <td style={{border:"1px solid black"}}>{user.status ? "Active" : "NOn-Active"}</td>
-                                    <td style={{border:"1px solid black"}}><select onChange={(e) => handleDropdownChange(e, index)}>
+                                    <td style={{ border: "1px solid black" }}>{index + 1}</td>
+                                    <td style={{ border: "1px solid black" }}>{editIndex === index ? <input type="text" value={user.name} /> : user.name}</td>
+                                    <td style={{ border: "1px solid black" }}>{editIndex === index ? <input type="text" value={user.email} /> : user.email}</td>
+                                    <td style={{ border: "1px solid black" }}>{editIndex === index ? <input type="text" value={user.phone} /> : user.phone}</td>
+                                    <td style={{ border: "1px solid black" }}>{user.createdAt}</td>
+                                    <td style={{ border: "1px solid black" }}>{user.status ? "Active" : "NOn-Active"}</td>
+                                    <td style={{ border: "1px solid black" }}><select onChange={(e) => handleDropdownChange(e, index)}>
                                         <option >Select an action</option>
                                         <option onClick={() => HandleEditClick(index)}>Edit</option>
                                         <option>Delete</option>
@@ -92,7 +91,7 @@ export default function Home() {
                     </tbody>
                 </table>
             </div>
-            
+
             <Routes>
                 <Route path="/edit/:index" render={({ match }) => (
                     <UserEdit
@@ -103,7 +102,7 @@ export default function Home() {
                     />
                 )} />
             </Routes>
-        </div>
+        </React.Fragment>
 
     )
 }

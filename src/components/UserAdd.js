@@ -1,14 +1,11 @@
 import { useState } from 'react';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const UserAdd = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [user, setUser] = useState({
-    // col:'59',
     name: "",
     email: "",
     phone: "",
-    // status: true, // hard-coded value
-    // createdAt: new Date().toISOString(),
   });
 
   const handleInputChange = (event) => {
@@ -20,7 +17,7 @@ const UserAdd = () => {
     event.preventDefault();
     // Add the user object to your data array
     // const id=data[data.length-1]+1;
-    const data = {  name:user.name, email:user.email, phone:Number(user.phone) };
+    const data = { name: user.name, email: user.email, phone: Number(user.phone) };
     // fetch('https://openuserapi.onrender.com/admin/create-user', {
     //   method: 'POST',
     //   headers: {
@@ -41,13 +38,13 @@ const UserAdd = () => {
         },
         body: JSON.stringify(data),
       });
-     
-    // location.reload()
+
+      // location.reload()
       // console.log(res)
       // console.log(res.status)
       console.log(res.json())
       // console.log(res.status)
-      
+
       if (res.status === 200) {
         console.log(res)
         console.log('API request was successful');
@@ -61,18 +58,18 @@ const UserAdd = () => {
       console.error('Error creating user:', err);
     }
   };
-  
+
 
   return (
-    <div>
-      <div style={{background:"#000000", width:"100vw", height:"50px", color:"#ffffff", textAlign:"center"}}>Add new row</div>
+    <React.Fragment>
+      <div style={{ background: "#000000", width: "100vw", height: "50px", color: "#ffffff", textAlign: "center" }}>Add new row</div>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" value={user.name} onChange={handleInputChange} />
         <input type="text" name="email" value={user.email} onChange={handleInputChange} />
         <input type="text" name="phone" value={user.phone} onChange={handleInputChange} />
         <button type="submit">Add User</button>
       </form>
-    </div>
+    </React.Fragment>
   );
 }
 
